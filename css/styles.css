@@ -1,3 +1,17 @@
 .fullHeight{
     height: 300px;
 }
+
+html,
+body,
+.main{
+    height: 100%;
+}
+
+.margin20{
+    margin-top: 20px;
+}
+
+.vr{
+    border-right: 1px solid #333;
+}

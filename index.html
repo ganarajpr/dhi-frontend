@@ -10,16 +10,22 @@
     <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid main">
         <div class="row">
-            <div class="col-xs-4"
+            <div class="col-xs-4 vr"
                  ng-controller="FunctionEditorController">
-                <form class="fullHeight">
-                    <textarea
-                            ui-codemirror=""
-                            ui-codemirror-opts="codemirrorOptions"
-                            ng-model="functionModel">
-                    </textarea>
+                <form class="form">
+                    <div class="form-group">
+                    	<label for="name" class="col-sm-12">Enter the Function : </label>
+                    	<div class="col-sm-12">
+                            <textarea
+                                    ui-codemirror=""
+                                    ui-codemirror-opts="codemirrorOptions"
+                                    ng-model="externalModel.fnSource">
+                            </textarea>
+                    	</div>
+                    </div>
+                    <button ng-click="onFunctionSend()" type="submit" class="btn btn-default pull-right margin20">Send</button>
                 </form>
             </div>
             <div class="col-xs-8">
@@ -35,6 +41,8 @@
     <script src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
     <script src="app/function-editor/function-editor.js"></script>
     <script src="app/function-editor/controller/FunctionEditorController.js"></script>
+    <script src="app/function-editor/service/ExternalsModel.js"></script>
+    <script src="app/function-editor/service/ExternalsService.js"></script>
     <script src="app/app.js"></script>
 </body>
 </html>
