@@ -2,8 +2,7 @@ angular.module('function-editor')
     .controller('FunctionEditorController',
     [
         '$scope',
-        function FunctionEditorController(
-            $scope){
+        function ( $scope ){
             $scope.codemirrorOptions = {
                 lineNumbers: true,
                 mode : 'javascript',
