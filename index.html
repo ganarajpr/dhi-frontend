@@ -10,41 +10,60 @@
     <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-    <div class="container-fluid main">
-        <div class="row">
-            <div class="col-xs-4 vr"
-                 ng-controller="FunctionEditorController">
-                <form class="form">
-                    <div class="form-group">
-                    	<label for="name" class="col-sm-12">Enter the Function : </label>
-                    	<div class="col-sm-12">
-                            <textarea
-                                    ui-codemirror=""
-                                    ui-codemirror-opts="codemirrorOptions"
-                                    ng-model="externalModel.fnSource">
-                            </textarea>
-                    	</div>
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-xs-4 vr"
+             ng-controller="FunctionEditorController">
+            <form class="form">
+                <div class="form-group">
+                    <label class="col-sm-12">Enter the Function : </label>
+
+                    <div class="col-sm-12">
+                        <textarea
+                                ui-codemirror=""
+                                ui-codemirror-opts="codemirrorOptions"
+                                ng-model="externalModel.fnSource">
+                        </textarea>
                     </div>
-                    <button ng-click="onFunctionSend()" type="submit" class="btn btn-default pull-right margin20">Send</button>
-                </form>
-            </div>
-            <div class="col-xs-8" ng-controller="ExternalsFillController">
-                <div ng-repeat="ext in externalModel.externals">
-                    <div>{{ext.raw}} : {{ext.type}}</div>
                 </div>
+                <button ng-click="onFunctionSend()" type="submit" class="btn
+                    btn-default pull-right margin20">Send</button>
+            </form>
+        </div>
+        <div class="col-xs-8" ng-controller="ExternalsFillController">
+            <div class="row form-section" ng-repeat="ext in externalModel.externals">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="row margining">
+                            {{ext.raw}} <span ng-if="ext.isFunction">returns </span>
+                            <span ng-if="!ext.isFunction"> = </span>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="row margining">
+                            <input type="text" ng-model="ext.value" placeholder="value">
+                        </div>
+                        <div class="row margining" ng-if="ext.isFunction">
+                            Is a setter function : <input type="checkbox" ng-model="ext.isSetter">
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="bower_components/lodash/dist/lodash.min.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/codemirror/lib/codemirror.js"></script>
-    <script src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
-    <script src="app/function-editor/function-editor.js"></script>
-    <script src="app/function-editor/controller/FunctionEditorController.js"></script>
-    <script src="app/function-editor/controller/ExternalsFillController.js"></script>
-    <script src="app/function-editor/service/ExternalsModel.js"></script>
-    <script src="app/function-editor/service/ExternalsService.js"></script>
-    <script src="app/app.js"></script>
+<script src="bower_components/lodash/dist/lodash.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/codemirror/lib/codemirror.js"></script>
+<script src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+<script src="app/function-editor/function-editor.js"></script>
+<script src="app/function-editor/controller/FunctionEditorController.js"></script>
+<script src="app/function-editor/controller/ExternalsFillController.js"></script>
+<script src="app/function-editor/service/ExternalsModel.js"></script>
+<script src="app/function-editor/service/ExternalsService.js"></script>
+<script src="app/app.js"></script>
 </body>
 </html>

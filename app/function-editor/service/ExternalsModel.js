@@ -9,9 +9,9 @@ angular.module('function-editor')
                 ext.raw = external;
                 var splitExternals = external.split('.');
                 var lastPiece = splitExternals[splitExternals.length - 1];
-                ext.type = isFunction(lastPiece) ? 'function' : 'expr';
+                ext.isFunction = isFunction(lastPiece);
                 ext.value = '';
-                if(ext.type === 'function'){
+                if(ext.isFunction){
                     ext.isSetter = false;
                 }
                 return ext;

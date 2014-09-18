@@ -1,3 +1,8 @@
+
+*{
+    box-sizing: border-box;
+}
+
 .fullHeight{
     height: 300px;
 }
@@ -6,6 +11,7 @@ html,
 body,
 .main{
     height: 100%;
+    padding-top: 40px;
 }
 
 .margin20{
@@ -15,3 +21,17 @@ body,
 .vr{
     border-right: 1px solid #333;
 }
+
+.row-gap{
+    margin-bottom: 12px;
+}
+
+.margining {
+    margin-top : 10px;
+    margin-bottom : 10px;
+}
+
+.form-section{
+    padding-left: 20px;
+}
+
