@@ -5,7 +5,6 @@ angular.module('codebrowser')
         '$element',
         function ( $scope,$element ){
 
-            console.log($element,'controller created');
             this.elem = $element;
             this.childContexts = [];
 

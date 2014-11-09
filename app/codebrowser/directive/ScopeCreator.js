@@ -8,7 +8,6 @@ angular.module('codebrowser')
 
                 var parentContext = element.parent().controller('scopeCreator') ;
                 if(parentContext){
-                    console.log(element,'post link',ctrl.elem);
                     parentContext.registerChildContext(ctrl);
                 }
 
