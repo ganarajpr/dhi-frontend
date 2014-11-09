@@ -11,14 +11,16 @@ angular.module('codebrowser')
 
                 var parentContext = ctrls[0];
                 var identifierController = ctrls[1];
+                identifierController.identName = scope.identifier;
                 var memberExpressionController = ctrls[2];
                 var isCreated = attrs.hasOwnProperty('origin');
                 var isExcluded = attrs.hasOwnProperty('excludeAddition');
-                if(!isExcluded){
-                    parentContext.registerIdentifier(scope.identifier, isCreated , identifierController);
-                }
+
                 if(memberExpressionController){
-                    memberExpressionController.registerSymbol(scope.identifier,isExcluded);
+                    memberExpressionController.registerSymbol(identifierController,isExcluded);
+                }
+                else{
+                    parentContext.registerIdentifier(scope.identifier, isCreated , identifierController);
                 }
 
                 scope.shouldHighlight = false;

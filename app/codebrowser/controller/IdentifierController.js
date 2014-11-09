@@ -9,9 +9,5 @@ angular.module('codebrowser')
 
 
             };
-
-            $scope.onClick = function(){
-                $scope.shouldHighlight = !$scope.shouldHighlight;
-            };
         }
     ]);

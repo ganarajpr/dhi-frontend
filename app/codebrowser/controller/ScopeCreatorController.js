@@ -18,12 +18,12 @@ angular.module('codebrowser')
 
                 if(!this.variables.hasOwnProperty(idName)){
                     this.variables[idName] = {
-                        creation : {},
+                        creation : null,
                         usage : []
                     };
                 }
                 if(isCreate){
-                    this.variables[idName].creation.location = identifier;
+                    this.variables[idName].creation = identifier;
                 }
                 else{
                     if(!this.variables[idName].usage){
@@ -48,8 +48,8 @@ angular.module('codebrowser')
 
             this.highlightIdentifier = function(identifier,toggle){
                 var ident = this.variables[identifier];
-                if(ident && ident.creation && ident.creation.location){
-                    ident.creation.location.highlight(toggle);
+                if(ident && ident.creation){
+                    ident.creation.highlight(toggle);
                     this.highlightUsagesOfIdentifier(identifier,toggle);
                 }
                 else{

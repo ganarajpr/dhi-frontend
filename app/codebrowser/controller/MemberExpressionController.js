@@ -4,17 +4,23 @@ angular.module('codebrowser')
         '$scope',
         function ( $scope ){
 
-            this.registerSymbol = function(name,end){
+            this.registerSymbol = function(identifier,end){
                 if(end){
-                    this.right = name;
+                    this.right = identifier;
                 }
                 else{
-                    this.left = name;
+                    this.left = identifier;
+                    this.context.registerIdentifier(identifier.identName,false,this);
                 }
-                if(this.left && this.right){
-                    console.log(this.left,'.',this.right);
-                }
+            };
 
+            this.highlight = function(state){
+                if(this.left){
+                    this.left.highlight(state);
+                }
+                if(this.right){
+                    this.right.highlight(state);
+                }
             };
         }
     ]);
